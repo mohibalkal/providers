@@ -29,10 +29,10 @@ import { lookmovieScraper } from './sources/lookmovie';
 import { wecimaScraper } from './sources/wecima';
 import { youPlexSources } from './sources/youplex';
 import { cinevaroScraper } from './sources/cinevaro';
-import { linkScraper } from './sources/link';
+
 import { gallicScraper } from './sources/gallic';
-import { nebulaScraper } from './sources/nebula';
-import { tikiScraper } from './sources/tiki';
+
+
 import { vidupScraper } from './sources/vidup';
 import { debridScraper } from './sources/debrid';
 
@@ -52,10 +52,10 @@ export function gatherAllSources(): Array<Sourcerer> {
     // tikkiScraper,
     asperaScraper,
     cinevaroScraper,
-    linkScraper,
+
     gallicScraper,
-    nebulaScraper,
-    tikiScraper,
+
+
     wecimaScraper,
     fsOnlineScraper,
     lookmovieScraper,

@@ -355,11 +355,7 @@ async function scrapeNesterov(context: MediaContext) {
     `${NESTEROV_BASE_URL}/nesterov`,
     {
       method: "GET",
-      headers: {
-        ...requestInfo.headers,
-        Origin: "https://zstream.mov",
-        Referer: "https://zstream.mov/"
-      },
+      headers: requestInfo.headers,
       query,
     },
   );

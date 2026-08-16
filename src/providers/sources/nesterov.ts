@@ -88,7 +88,7 @@ async function YE(c: any) {
 }
 async function JQ(c: any) {
   let l = YQ();
-  let W = "zstream.mov";
+  let W = "localhost";
   let _ = new TextEncoder().encode(new TextDecoder().decode(l) + ":" + W);
   let I = await YE(_);
   let O = new Uint8Array(c);

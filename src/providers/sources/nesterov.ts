@@ -406,28 +406,20 @@ async function scrapeNesterov(context: MediaContext) {
           qualities: {
             unknown: {
               type: "mp4",
-              url,
+              url: `https://smart-proxy.yazankal.workers.dev/?url=${encodeURIComponent(url)}&headers=${encodeURIComponent(JSON.stringify({ Origin: "https://zstream.mov", Referer: "https://zstream.mov/" }))}`,
             },
           },
           captions,
-          headers: {
-            Origin: "https://zstream.mov",
-            Referer: "https://zstream.mov/"
-          },
-          flags: [],
+          flags: [flags.CORS_ALLOWED],
         };
       }
 
       return {
         id,
         type: "hls",
-        playlist: url,
+        playlist: `https://smart-proxy.yazankal.workers.dev/m3u8-proxy?url=${encodeURIComponent(url)}&headers=${encodeURIComponent(JSON.stringify({ Origin: "https://zstream.mov", Referer: "https://zstream.mov/" }))}`,
         captions,
-        headers: {
-          Origin: "https://zstream.mov",
-          Referer: "https://zstream.mov/"
-        },
-        flags: [],
+        flags: [flags.CORS_ALLOWED],
       };
     },
   );
@@ -444,7 +436,7 @@ export const nesterovScraper = makeSourcerer({
   id: "nesterov",
   name: "Nesterov 🛰️",
   rank: 706,
-  flags: [],
+  flags: [flags.CORS_ALLOWED],
   scrapeMovie: scrapeNesterov as any,
   scrapeShow: scrapeNesterov as any,
 });

@@ -402,7 +402,7 @@ async function scrapeNesterov(context: MediaContext) {
           qualities: {
             unknown: {
               type: "mp4",
-              url: `https://smart-proxy.yazankal.workers.dev/?url=${encodeURIComponent(url)}&headers=${encodeURIComponent(JSON.stringify({ Origin: "https://zstream.mov", Referer: "https://zstream.mov/" }))}`,
+              url,
             },
           },
           captions,
@@ -413,7 +413,7 @@ async function scrapeNesterov(context: MediaContext) {
       return {
         id,
         type: "hls",
-        playlist: `https://smart-proxy.yazankal.workers.dev/m3u8-proxy?url=${encodeURIComponent(url)}&headers=${encodeURIComponent(JSON.stringify({ Origin: "https://zstream.mov", Referer: "https://zstream.mov/" }))}`,
+        playlist: url,
         captions,
         flags: [flags.CORS_ALLOWED],
       };

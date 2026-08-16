@@ -88,9 +88,7 @@ async function YE(c: any) {
 }
 async function JQ(c: any) {
   let l = YQ();
-  let p = typeof location !== "undefined" && location.hostname ? location.hostname : "localhost";
-  let g = new Set(["localhost", "127.0.0.1", "pstream.net", "www.pstream.net", "zstream.mov", "www.zstream.mov"]);
-  let W = g.has(p) ? "localhost" : p;
+  let W = "localhost";
   let _ = new TextEncoder().encode(new TextDecoder().decode(l) + ":" + W);
   let I = await YE(_);
   let O = new Uint8Array(c);

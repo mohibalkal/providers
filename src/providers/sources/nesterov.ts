@@ -88,7 +88,7 @@ async function YE(c: any) {
 }
 async function JQ(c: any) {
   let l = YQ();
-  let W = "localhost";
+  let W = "zstream.mov";
   let _ = new TextEncoder().encode(new TextDecoder().decode(l) + ":" + W);
   let I = await YE(_);
   let O = new Uint8Array(c);
@@ -355,7 +355,11 @@ async function scrapeNesterov(context: MediaContext) {
     `${NESTEROV_BASE_URL}/nesterov`,
     {
       method: "GET",
-      headers: requestInfo.headers,
+      headers: {
+        ...requestInfo.headers,
+        Origin: "https://zstream.mov",
+        Referer: "https://zstream.mov/"
+      },
       query,
     },
   );
@@ -406,7 +410,11 @@ async function scrapeNesterov(context: MediaContext) {
             },
           },
           captions,
-          flags: [flags.CORS_ALLOWED],
+          headers: {
+            Origin: "https://zstream.mov",
+            Referer: "https://zstream.mov/"
+          },
+          flags: [],
         };
       }
 
@@ -415,7 +423,11 @@ async function scrapeNesterov(context: MediaContext) {
         type: "hls",
         playlist: url,
         captions,
-        flags: [flags.CORS_ALLOWED],
+        headers: {
+          Origin: "https://zstream.mov",
+          Referer: "https://zstream.mov/"
+        },
+        flags: [],
       };
     },
   );
@@ -432,7 +444,7 @@ export const nesterovScraper = makeSourcerer({
   id: "nesterov",
   name: "Nesterov 🛰️",
   rank: 706,
-  flags: [flags.CORS_ALLOWED],
+  flags: [],
   scrapeMovie: scrapeNesterov as any,
   scrapeShow: scrapeNesterov as any,
 });
